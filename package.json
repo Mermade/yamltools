@@ -1,0 +1,23 @@
+{
+  "name": "yamltools",
+  "version": "1.0.0",
+  "description": "YAML tools for comments in JSON etc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mike Ralphson",
+  "license": "BSD-3-Clause",
+  "keywords": [
+    "yaml",
+    "json",
+    "comments"
+  ],
+  "dependencies": {
+    "reftools": "^1.1.7",
+    "yaml": "^2.0.0-1"
+  },
+  "devDependencies": {
+    "mocha": "^8.2.1"
+  }
+}
