@@ -2,3 +2,4 @@ node_modules/
 *.yaml
 output.json
 input.json
+*.gz

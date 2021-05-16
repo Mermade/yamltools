@@ -14,13 +14,13 @@ if (argv._.length<3) {
 }
 else {
     const s = fs.readFileSync(argv._[2],'utf8');
-    let obj;
     try {
-      obj = yaml.parse(s);
+      //const obj = yaml.parse(s);
+      const obj = JSON.parse(s);
+      fs.writeFileSync(argv._[3],argv.comments ? comments.stringifyWithComments(obj) : yaml.stringify(obj),'utf8');
     }
     catch (ex) {
       console.warn(ex.message);
     }
-    fs.writeFileSync(argv._[3],argv.comments ? comments.stringifyWithComments(obj) : yaml.stringify(obj),'utf8');
 }
 
