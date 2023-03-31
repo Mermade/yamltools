@@ -1,7 +1,7 @@
 {
   "name": "yamltools",
   "version": "1.0.0",
-  "description": "YAML tools for comments in JSON etc",
+  "description": "YAML tools for comments in JSON and alias handling",
   "main": "index.js",
   "scripts": {
     "test": "npx mocha"
@@ -11,14 +11,18 @@
   "keywords": [
     "yaml",
     "json",
-    "comments"
+    "comments",
+    "aliases",
+    "alias",
+    "anchor",
+    "anchors"
   ],
   "dependencies": {
-    "reftools": "^1.1.7",
+    "reftools": "^1.1.9",
     "tiny-opts-parser": "0.0.3",
-    "yaml": "^2.0.0-3"
+    "yaml": "^2.2.1"
   },
   "devDependencies": {
-    "mocha": "^8.2.1"
+    "mocha": "10.2"
   }
 }
