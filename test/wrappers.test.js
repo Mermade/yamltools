@@ -1,3 +1,5 @@
+'use strict';
+
 const yaml = require('yaml'); // v2.0.0-1
 const assert = require('assert');
 

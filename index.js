@@ -1,3 +1,5 @@
+'use strict';
+
 const yaml = require('yaml');
 const recurse = require('reftools/lib/recurse.js').recurse;
 
@@ -11,6 +13,7 @@ function parseWithComments(str, commentProperty = '$comment') {
    if (comment && Array.isArray(state.parent)) {
      let existing = state.parent.find(function(e,i,a){
        if (e.key.value === commentProperty) return true;
+       return;
      });
      if (existing) {
        existing.value.value += '\n' + comment;
@@ -36,7 +39,8 @@ function parseWithAliases(str) {
 
 function stringifyWithComments(obj,commentProperty = '$comment') {
   const ast = yaml.parseDocument(yaml.stringify(obj));
-  let parent, grandparent = {};
+  let parent,
+grandparent = {};
   yaml.visit(ast,function(key,node,path) {
     let kill = false;
     if (yaml.isPair(node)) {

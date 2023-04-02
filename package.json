@@ -4,7 +4,8 @@
   "description": "YAML tools for comments in JSON and alias handling",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha"
+    "test": "npx mocha",
+    "lint": "npx eslint *.js test/*.js"
   },
   "author": "Mike Ralphson",
   "license": "BSD-3-Clause",
