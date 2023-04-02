@@ -14,7 +14,7 @@ outputs:
 `
 
 describe('Aliases', () => {
-  it('should parse aliases', () => {
+  it('should parse and return aliases', () => {
     const result = tools.parseWithAliases(input);
     assert.deepEqual(result.data, {
         hello: {
