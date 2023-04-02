@@ -1,5 +1,7 @@
 # YAMLtools
 
+![ci](https://github.com/Mermade/yamltools/workflows/ci/badge.svg)
+
 ## parseWithComments
 
 This function takes a YAML string and an optional `commentProperty`, which defaults to `$comment`.
