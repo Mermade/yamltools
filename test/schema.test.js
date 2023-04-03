@@ -13,6 +13,9 @@ outputs:
   *a
 `
 
+const jsonInput = `{ "hello" &a { "world": { "message": "Hello, world" } },
+    "outputs": *a }`;
+
 describe('Aliases', () => {
   it('should parse aliases with the core ruleset', () => {
     const result = yaml.parse(input, { schema: 'core' });
@@ -32,9 +35,9 @@ describe('Aliases', () => {
 });
 
 describe('Aliases', () => {
-  it('should not parse aliases with the json ruleset', () => {
+  it('should parse aliases with the json ruleset', () => {
     try {
-      yaml.parse(input, { schema: 'json' });
+      yaml.parse(jsonInput, { schema: 'json' });
       assert.ok(false, 'Should not get here');
     }
     catch (ex) {
