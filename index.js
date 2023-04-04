@@ -13,7 +13,7 @@ function parseWithComments(str, commentProperty = '$comment') {
    if (comment && Array.isArray(state.parent)) {
      let existing = state.parent.find(function(e,i,a){
        if (e.key.value === commentProperty) return true;
-       return;
+       return false;
      });
      if (existing) {
        existing.value.value += '\n' + comment;
@@ -39,7 +39,8 @@ function parseWithAliases(str) {
 
 function stringifyWithComments(obj,commentProperty = '$comment') {
   const ast = yaml.parseDocument(yaml.stringify(obj));
-  let parent, grandparent = {};
+  let parent = {};
+  let grandparent = {};
   yaml.visit(ast,function(key,node,path) {
     let kill = false;
     if (yaml.isPair(node)) {
