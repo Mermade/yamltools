@@ -31,7 +31,7 @@ function parseWithAliases(str) {
   const ast = yaml.parseDocument(str);
   yaml.visit(ast,function(key,node,path) {
     if (yaml.isAlias(node)) {
-      aliases.set(node.source,node.resolve(ast).toJS());
+      aliases.set(node.source,node.toJS(ast));
     }
   });
   return { data: ast.toJS(), aliases };
