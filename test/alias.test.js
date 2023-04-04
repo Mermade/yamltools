@@ -28,6 +28,13 @@ describe('Aliases', () => {
           }
         }
     });
+
+    assert.equal(result.data.hello,result.data.outputs); // two objects share identity
+
+    const compare = { "hello": { "world": { "message": "Hello, world" }}};
+    compare.outputs = compare.hello;
+    assert.deepEqual(result.data, compare);
+
     const aliases = new Map();
     aliases.set('a', { 'world': { 'message': 'Hello, world' }});
     assert.deepEqual(result.aliases, aliases);
@@ -35,9 +42,3 @@ describe('Aliases', () => {
   });
 });
 
-//const parsed = tools.parseWithAliases(input);
-//console.log(util.inspect(parsed.data,{depth:null,showHidden:true}));
-//console.log('Object identity one',parsed.data.hello === parsed.data.outputs);
-//console.log();
-//console.log(util.inspect(parsed.aliases,{depth:null,showHidden:false}));
-//console.log('Object identity two',parsed.data.hello === parsed.aliases.get('a'));
