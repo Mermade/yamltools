@@ -31,6 +31,7 @@ describe('Aliases', () => {
     const aliases = new Map();
     aliases.set('a', { 'world': { 'message': 'Hello, world' }});
     assert.deepEqual(result.aliases, aliases);
+    //assert.equal(result.aliases, aliases); // object identity is not preserved
   });
 });
 

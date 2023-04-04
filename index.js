@@ -7,7 +7,7 @@ function parseWithComments(str, commentProperty = '$comment') {
   const ast = yaml.parseDocument(str);
 
  recurse(ast,{},function(obj,key,state){
-    let comment;
+   let comment;
    if (obj[key] && obj[key].commentBefore) comment = obj[key].commentBefore;
    if (obj[key] && obj[key].comment) comment = obj[key].comment;
    if (comment && Array.isArray(state.parent)) {
@@ -31,7 +31,7 @@ function parseWithAliases(str) {
   const ast = yaml.parseDocument(str);
   yaml.visit(ast,function(key,node,path) {
     if (yaml.isAlias(node)) {
-      aliases.set(node.source,node.resolve(ast).toJSON());
+      aliases.set(node.source,node.resolve(ast).toJS());
     }
   });
   return { data: ast.toJS(), aliases };
@@ -39,8 +39,7 @@ function parseWithAliases(str) {
 
 function stringifyWithComments(obj,commentProperty = '$comment') {
   const ast = yaml.parseDocument(yaml.stringify(obj));
-  let parent,
-grandparent = {};
+  let parent, grandparent = {};
   yaml.visit(ast,function(key,node,path) {
     let kill = false;
     if (yaml.isPair(node)) {
